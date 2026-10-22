@@ -94,10 +94,9 @@ bool dequeue(Queue& q, int& nomor) {
      return false;
     }
 
-    Node *hapus = new Node();
-    hapus = q.depan;
+    Node *hapus = q.depan;
     nomor = hapus->data;
-    q.depan = hapus->next;
+    q.depan = q.depan->next;
 
     if(q.depan == nullptr){
      q.belakang = nullptr;
@@ -113,8 +112,7 @@ bool dequeue(Queue& q, int& nomor) {
 void clear(Queue& q) {
     Node *temp = q.depan;
     while(temp != nullptr){
-     Node *hapus = new Node();
-     hapus = temp;
+     Node *hapus = temp;
      temp = temp->next;
      delete hapus;
     }
